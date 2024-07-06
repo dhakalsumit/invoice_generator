@@ -1,3 +1,4 @@
+import 'package:billing_app/screens/Invoice%20details/items_details.dart';
 import 'package:billing_app/screens/Invoice%20details/receiver_details.dart';
 import 'package:flutter/material.dart';
 
@@ -91,7 +92,7 @@ class _HomeState extends State<Home> {
                       return ReceiverDetails();
                     }));
                   },
-                  child: Text("Continue "))
+                  child: Text("Create Invoices "))
             ],
           ),
         )),

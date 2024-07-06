@@ -1,8 +1,11 @@
-import 'package:billing_app/screens/Invoice%20details/sender_details.dart';
-import 'package:billing_app/screens/home_page.dart';
+
+import 'package:billing_app/screens/Invoice%20details/file_picker.dart';
+
 import 'package:flutter/material.dart';
 
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Home(),
+      home: FilePicker(),
     );
   }
 }

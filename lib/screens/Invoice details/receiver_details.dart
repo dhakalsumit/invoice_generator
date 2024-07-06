@@ -15,8 +15,9 @@ class _ReceiverDetailsState extends State<ReceiverDetails> {
       body: SingleChildScrollView(
         child: Form(
             child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 "Receiver Company Details",
@@ -59,16 +60,23 @@ class _ReceiverDetailsState extends State<ReceiverDetails> {
                 ),
               ),
               SizedBox(
-                height: 200,
+                height: 20,
+              ),
+              const Text(
+                "Add Items",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 10,
               ),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return ReceiverDetails();
+                      return Dialog();
                     }));
                   },
-                  child: Text("Continue "))
+                  child: Text("Click here to add items  "))
             ],
           ),
         )),

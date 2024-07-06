@@ -1,4 +1,4 @@
-import 'package:billing_app/screens/pdf_view.dart';
+import 'package:billing_app/Pdf_generator/pdf_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
