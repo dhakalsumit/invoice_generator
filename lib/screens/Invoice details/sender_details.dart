@@ -1,6 +1,8 @@
-import 'package:billing_app/screens/Invoice%20details/items_details.dart';
+import 'dart:io';
+
 import 'package:billing_app/screens/Invoice%20details/receiver_details.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,6 +12,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  File? imageFile;
+  selectImage(ImageSource source) async {
+    XFile? pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) {
+      setState(() {
+        imageFile = File(pickedImage.path);
+      });
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Company logo added")));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,24 +92,25 @@ class _HomeState extends State<Home> {
                   labelText: 'Enter email Address',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              const Text(
-                "Feature to pick file will be added later",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              SizedBox(
+              TextButton(
+                  onPressed: () {
+                    selectImage(ImageSource.gallery);
+                  },
+                  child: const Text("Click here to add company logo")),
+              const SizedBox(
                 height: 50,
               ),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return ReceiverDetails();
+                      return const ReceiverDetails();
                     }));
                   },
-                  child: Text("Create Invoices "))
+                  child: const Text("Create Invoices "))
             ],
           ),
         )),
